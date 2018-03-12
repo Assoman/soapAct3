@@ -17,11 +17,11 @@ public class TestUnmarshall {
     void testUnmarshallResult() throws Exception{
         JAXBContext jaxbContext = JAXBContext.newInstance(DwmlType.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        String filePath = "/home/osamah/IdeaProjects/soapserviceact3/src/main/resources/response.xml";
-        //File XMLfile = new File("/home/osamah/IdeaProjects/soapserviceact3/src/main/resources/response.xml");
-        DwmlType dwml = (DwmlType) jaxbUnmarshaller.unmarshal(new StringReader(filePath));
-        //DwmlType dwnlType = (DwmlType)jaxbUnmarshaller.unmarshal(XMLfile);
-        String lat = dwml.getLatLonList();
+        //String filePath = "/home/osamah/IdeaProjects/soapserviceact3/src/main/resources/response.xml";
+        File XMLfile = new File("/home/osamah/IdeaProjects/soapserviceact3/src/main/resources/response.xml");
+        //DwmlType dwml = (DwmlType) jaxbUnmarshaller.unmarshal(new StringReader(filePath));
+        DwmlType dwmlType = (DwmlType)jaxbUnmarshaller.unmarshal(XMLfile);
+        String lat = dwmlType.getLatLonList();
         assertEquals("43.0798,-89.3875", lat);
     }
 
